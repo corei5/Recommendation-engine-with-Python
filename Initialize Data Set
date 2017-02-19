@@ -1,0 +1,13 @@
+from numpy import *
+
+num_movies=10
+num_users=5
+
+ratings=random.randint(11,size=(num_movies,num_users))
+print ratings
+
+#Hear output 1 for rating the movie, 0 for not rating the movie
+#if rating is not equal to 0 make them 1
+
+did_rate= (ratings!=0)*1
+print did_rate
