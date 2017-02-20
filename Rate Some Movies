@@ -1,0 +1,18 @@
+#rating all movies
+
+movie_rating= zeros((num_movies,1))
+print movie_rating
+
+#rating some movies
+
+movie_rating[0]=8
+movie_rating[4]=7
+movie_rating[7]=3
+print movie_rating
+
+# add new coll(ratings)  and (did_rate) add binary of pervious ratings
+
+ratings = append(movie_rating, ratings, axis = 1)
+did_rate = append(((movie_rating != 0) * 1), did_rate, axis = 1)
+print ratings
+print did_rate
