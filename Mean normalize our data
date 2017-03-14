@@ -1,0 +1,20 @@
+# a function that normalizes a dataset
+
+def normalize_ratings(ratings, did_rate):
+    num_movies = ratings.shape[0]
+    
+    ratings_mean = zeros(shape = (num_movies, 1))
+    ratings_norm = zeros(shape = ratings.shape)
+    
+    for i in range(num_movies): 
+        # Get all the indexes where there is a 1
+        idx = where(did_rate[i] == 1)[0]
+        #  Calculate mean rating of ith movie only from user's that gave a rating
+        ratings_mean[i] = mean(ratings[i, idx])
+        ratings_norm[i, idx] = ratings[i, idx] - ratings_mean[i]
+    
+    return ratings_norm, ratings_mean
+    
+ # Normalize ratings
+
+ratings, ratings_mean = normalize_ratings(ratings, did_rate)
