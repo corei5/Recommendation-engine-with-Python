@@ -1,0 +1,28 @@
+# Update some key variables now
+
+num_users = ratings.shape[1]
+num_features = 3
+
+# Simple explanation of what it means to 'vectorize' a linear regression
+
+X = array([[1, 2], [1, 5], [1, 9]])
+Theta = array([[0.23], [0.34]])
+print X
+print Theta
+
+#X is movie features
+#Theta is user_prefs
+Y = X.dot(Theta)
+print Y
+
+# Initialize Parameters theta (user_prefs), X (movie_features)
+
+movie_features = random.randn( num_movies, num_features )
+user_prefs = random.randn( num_users, num_features )
+initial_X_and_theta = r_[movie_features.T.flatten(), user_prefs.T.flatten()]
+
+print movie_features
+print user_prefs
+print initial_X_and_theta
+
+initial_X_and_theta.shape
