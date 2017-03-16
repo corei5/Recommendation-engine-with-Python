@@ -1,0 +1,29 @@
+# import these for advanced optimizations (like gradient descent)
+from scipy import optimize
+
+# regularization paramater
+reg_param=30
+
+# perform gradient descent, find the minimum cost (sum of squared errors) and optimal values of X (movie_features) and Theta (user_prefs)
+minimized_cost_and_optimal_params = optimize.fmin_cg(calculate_cost, fprime=calculate_gradient, x0=initial_X_and_theta, 								args=(ratings, did_rate, num_users, num_movies, num_features, reg_param), maxiter=100, disp=True, full_output=True ) 
+
+
+cost, optimal_movie_features_and_user_prefs = minimized_cost_and_optimal_params[1], minimized_cost_and_optimal_params[0]
+
+print movie_features
+
+print user_prefs
+
+# Make some predictions (movie recommendations). Dot product
+
+all_predictions = movie_features.dot( user_prefs.T )
+
+print all_predictions
+
+# add back the ratings_mean column vector to my (our) predictions
+
+predictions = all_predictions[:, 0:1] + ratings_mean
+
+print predictions
+
+print ratings
